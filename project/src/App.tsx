@@ -200,93 +200,13 @@ function App() {
         </nav>
 
         {/* Main Content */}
-        <main className="flex-1 p-6 pb-32">
+        <main className="flex-1 p-6">
           {renderActiveComponent()}
         </main>
       </div>
 
-      {/* General Preferences Section - Only show on dashboard */}
-      {activeTab === 'dashboard' && (
-        <div className={`fixed bottom-4 left-64 right-4 ${
-          isDarkMode ? 'bg-gray-800' : 'bg-white'
-        } rounded-xl shadow-lg border ${
-          isDarkMode ? 'border-gray-700' : 'border-gray-200'
-        } mx-6 z-10`}>
-          <div className="p-4">
-            <h3 className={`text-sm font-semibold mb-3 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
-              {t('generalPrefs')}
-            </h3>
-            
-            {/* Responsive grid with proper spacing */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 p-2 rounded-lg bg-opacity-50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <div className={`p-2 rounded-full ${
-                  isDarkMode ? 'bg-gray-700' : 'bg-gray-100'
-                }`}>
-                  <Globe size={16} className={isDarkMode ? 'text-gray-400' : 'text-gray-600'} />
-                </div>
-                <div>
-                  <span className={`text-xs font-medium ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                    {t('language')}
-                  </span>
-                  <div className={`text-sm font-semibold ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    Français
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3 p-2 rounded-lg bg-opacity-50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                <div className={`p-2 rounded-full ${
-                  isDarkMode ? 'bg-gray-700' : 'bg-gray-100'
-                }`}>
-                  <Clock size={16} className={isDarkMode ? 'text-gray-400' : 'text-gray-600'} />
-                </div>
-                <div>
-                  <span className={`text-xs font-medium ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                    {t('timezone')}
-                  </span>
-                  <div className={`text-sm font-semibold ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    UTC+1
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3 p-2 rounded-lg bg-opacity-50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors sm:col-span-2 lg:col-span-1">
-                <div className={`p-2 rounded-full ${
-                  isDarkMode ? 'bg-gray-700' : 'bg-gray-100'
-                }`}>
-                  <Bell size={16} className={isDarkMode ? 'text-gray-400' : 'text-gray-600'} />
-                </div>
-                <div>
-                  <span className={`text-xs font-medium ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                    {t('notifications')}
-                  </span>
-                  <div className={`text-sm font-semibold ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    Activées
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Chatbot - Adjusted positioning to avoid overlap */}
-      <div className="fixed bottom-24 right-6 z-50">
+      {/* Chatbot */}
+      <div className="fixed bottom-6 right-6 z-50">
         {isChatOpen && (
           <div className={`mb-4 w-64 h-72 ${
             isDarkMode ? 'bg-gray-800' : 'bg-white'
@@ -352,7 +272,7 @@ function App() {
           </div>
         )}
         
-        {/* Chat Toggle Button - Smaller size */}
+        {/* Chat Toggle Button */}
         <button
           onClick={() => setIsChatOpen(!isChatOpen)}
           className="w-10 h-10 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors flex items-center justify-center"
